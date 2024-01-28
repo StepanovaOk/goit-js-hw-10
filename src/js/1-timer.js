@@ -31,7 +31,6 @@ const options = {
         position: 'topRight',
         iconUrl: iconClose,
       });
-
       btnStart.disabled = true;
     } else {
       btnStart.disabled = false;
@@ -74,17 +73,18 @@ function onTimer(difference) {
 }
 
 function onStart() {
-  btnStart.addEventListener('click', () => {
-    timerInterval = setInterval(() => {
-      if (difference <= 0) {
-        clearInterval(timerInterval);
-      } else {
-        onTimer(difference);
-        difference -= 1000;
-      }
-    }, 1000);
-  });
+  timerInterval = setInterval(() => {
+    if (difference <= 0) {
+      clearInterval(timerInterval);
+    } else {
+      onTimer(difference);
+      difference -= 1000;
+    }
+  }, 1000);
 }
 
 flatpickr('#datetime-picker', options);
-onStart();
+
+btnStart.addEventListener('click', () => {
+  onStart();
+});
