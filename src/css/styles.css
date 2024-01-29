@@ -47,8 +47,7 @@
   transition-timing-function: linear;
 }
 
-.input-field:hover,
-.input-field:focus {
+.input-field:hover {
   border: 1px solid #000;
 }
 
@@ -75,8 +74,7 @@
   transition: background 250ms linear;
 }
 
-.start-btn:hover,
-.start-btn:focus {
+.start-btn:hover {
   background: #6c8cff;
 }
 
@@ -121,10 +119,10 @@
   border: 1px solid #808080;
   padding: 8px 16px;
   box-sizing: border-box;
+  transition: border 250ms linear;
 }
 
-.input-delay:hover,
-.input-delay:focus {
+.input-delay:hover {
   border: 1px solid #000;
 }
 
@@ -159,6 +157,7 @@ fieldset {
   margin-bottom: 24px;
   border-radius: 4px;
   border: 1px solid #808080;
+  transition: border 250ms linear;
 }
 
 fieldset:hover,
@@ -193,8 +192,37 @@ fieldset:active {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5em;
+  transition: background 250ms linear;
 }
 
 .create-btn:hover {
   background: #6c8cff;
+}
+
+.btn-nav {
+  display: flex;
+  margin-bottom: 15px;
+  width: 80px;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  background: #4e75ff;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5em;
+  transition: background 250ms linear;
+}
+
+.btn-nav:hover {
+  background: #6c8cff;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
