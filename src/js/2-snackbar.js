@@ -42,32 +42,3 @@ form.addEventListener('submit', function (event) {
       });
     });
 });
-
-// function createPromise(state, delay) {
-//   const promise = new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       if (state === 'fulfilled') {
-//         resolve(
-//           iziToast.show({
-//             message: `Fulfilled promise in ${delay}ms`,
-//             messageColor: '#FFF',
-//             backgroundColor: '#59A10D;',
-//             position: 'topRight',
-//             iconUrl: iconOk,
-//           })
-//         );
-//       } else {
-//         reject(
-//           iziToast.show({
-//             message: `Rejected promise in ${delay}ms`,
-//             messageColor: '#FFF',
-//             backgroundColor: '#EF4040;',
-//             position: 'topRight',
-//             iconUrl: iconClose,
-//           })
-//         );
-//       }
-//     }, delay);
-//   });
-//   return promise;
-// }
