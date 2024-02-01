@@ -38,14 +38,6 @@ const options = {
       btnStart.disabled = false;
     }
   },
-
-  onChange(selectedDates) {
-    if (selectedDates.length === 0) {
-      btnStart.disabled = true;
-    } else {
-      btnStart.disabled = false;
-    }
-  },
 };
 
 function convertMs(ms) {
@@ -75,18 +67,40 @@ function onTimer(difference) {
 }
 
 function onStart() {
-  timerInterval = setInterval(() => {
-    if (difference <= 0) {
-      clearInterval(timerInterval);
-    } else {
-      onTimer(difference);
-      difference -= 1000;
-    }
-  }, 1000);
+  if (userSelectedDate > Date.now()) {
+    difference = userSelectedDate.getTime() - Date.now();
+    timerInterval = setInterval(() => {
+      if (difference <= 0) {
+        clearInterval(timerInterval);
+      } else {
+        onTimer(difference);
+        difference -= 1000;
+      }
+    }, 1000);
+  } else {
+    iziToast.show({
+      message: 'Please choose a date in the future',
+      messageColor: '#FFF',
+      backgroundColor: '#EF4040',
+      position: 'topRight',
+      iconUrl: iconClose,
+    });
+  }
 }
 
 flatpickr('#datetime-picker', options);
 
 btnStart.addEventListener('click', () => {
-  onStart();
+  if (userSelectedDate > Date.now()) {
+    onStart();
+    btnStart.disabled = true;
+  } else {
+    iziToast.show({
+      message: 'Please choose a date in the future',
+      messageColor: '#FFF',
+      backgroundColor: '#EF4040',
+      position: 'topRight',
+      iconUrl: iconClose,
+    });
+  }
 });
